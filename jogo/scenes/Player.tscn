@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxpdpqa0r0jh0"]
 
-[ext_resource type="Script" uid="uid://bmnhtcsbviewp" path="res://scripts/player.gd" id="1_p0vlq"]
+[ext_resource type="Script" uid="uid://bmnhtcsbviewp" path="res://scripts/entities/player.gd" id="1_p0vlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
 size = Vector2(16, 16)
@@ -14,3 +14,13 @@ script = ExtResource("1_p0vlq")
 shape = SubResource("RectangleShape2D_p0vlq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=32996631]
+
+[node name="Components" type="Node" parent="." unique_id=2020611237]
+
+[node name="HealthComponent" type="Node" parent="Components" unique_id=2017120841]
+
+[node name="MovementComponent" type="Node" parent="Components" unique_id=1862651188]
+
+[node name="Controllers" type="Node" parent="." unique_id=145180516]
+
+[node name="PlayerBrain" type="Node" parent="Controllers" unique_id=1515605691]

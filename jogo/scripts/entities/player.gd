@@ -1,5 +1,4 @@
-extends CharacterBody2D
-
+extends Entity
 
 const SPEED = 300.0
 
