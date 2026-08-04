@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dvfx3uqkbjpvt"]
+
+[ext_resource type="PackedScene" uid="uid://bxpdpqa0r0jh0" path="res://scenes/Player.tscn" id="1_kqs1s"]
+[ext_resource type="PackedScene" uid="uid://bek25m1wwf8yp" path="res://scenes/Wall.tscn" id="2_32lhk"]
+
+[node name="World" type="Node2D" unique_id=1150782632]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1607422086]
+
+[node name="Player" parent="TileMapLayer" unique_id=1145419142 instance=ExtResource("1_kqs1s")]
+
+[node name="Wall" parent="TileMapLayer" unique_id=1155878241 instance=ExtResource("2_32lhk")]
+position = Vector2(200, 0)
+
+[node name="Wall2" parent="TileMapLayer" unique_id=1406245743 instance=ExtResource("2_32lhk")]
+position = Vector2(-200, 0)
