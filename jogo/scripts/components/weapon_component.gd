@@ -20,3 +20,8 @@ func unequip():
 
 func has_weapon() -> bool:
 	return weapon != null
+
+func attack():
+	if weapon == null:
+		return
+	weapon.attack()

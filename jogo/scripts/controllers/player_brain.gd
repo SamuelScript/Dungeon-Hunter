@@ -15,3 +15,7 @@ func update_input():
 
 func update_look():
 	entity.look_at(entity.get_global_mouse_position())
+
+func update_attack():
+	if Input.is_action_just_pressed("attack"):
+		entity.weapon_component.attack()
