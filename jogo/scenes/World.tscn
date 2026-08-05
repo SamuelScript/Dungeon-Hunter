@@ -18,3 +18,8 @@ position = Vector2(-200, 0)
 
 [node name="Slime" parent="TileMapLayer" unique_id=1218474386 instance=ExtResource("3_7g83o")]
 position = Vector2(80, 80)
+
+[node name="EntityBrain" parent="TileMapLayer/Slime/Brain" parent_id_path=PackedInt32Array(1218474386, 746924422) index="0" unique_id=2130293324 node_paths=PackedStringArray("target")]
+target = NodePath("../../../Player")
+
+[editable path="TileMapLayer/Slime"]
