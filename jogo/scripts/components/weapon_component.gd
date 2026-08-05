@@ -7,7 +7,13 @@ func initialize(owner: Entity):
 	entity = owner
 
 func equip(new_weapon: Weapon):
+	if weapon != null:
+		weapon.queue_free()
 	weapon = new_weapon
+	entity.weapon_socket.add_child(weapon)
+	weapon.position = Vector2.ZERO
+	weapon.initialize(entity)
+	weapon.on_equip()
 
 func unequip():
 	weapon = null
