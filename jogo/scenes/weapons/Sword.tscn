@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cqs4rkmmnineu" path="res://scripts/weapons/sword.gd" id="1_m7h3f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7h3f"]
+size = Vector2(16, 16)
+
 [node name="Sword" type="Node2D" unique_id=1467866631]
 script = ExtResource("1_m7h3f")
 
@@ -17,4 +20,11 @@ offset_bottom = 8.0
 wait_time = 0.15
 one_shot = true
 
+[node name="HitBoxs" type="Area2D" parent="." unique_id=887333333]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxs" unique_id=1146292353]
+shape = SubResource("RectangleShape2D_m7h3f")
+disabled = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="HitBoxs" to="." method="_on_hit_boxs_body_entered"]

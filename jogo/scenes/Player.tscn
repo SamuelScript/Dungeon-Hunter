@@ -32,7 +32,7 @@ script = ExtResource("4_qu4a1")
 
 [node name="Brain" type="Node" parent="." unique_id=145180516]
 
-[node name="PlayerBrain" type="Node" parent="Brain" unique_id=1515605691]
+[node name="EntityBrain" type="Node" parent="Brain" unique_id=1515605691]
 script = ExtResource("4_mdl7e")
 
 [node name="WeaponSocket" type="Marker2D" parent="." unique_id=1863449787]

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dq0xduqx0rjmp"]
+
+[ext_resource type="Script" uid="uid://41hp4ub8v2dn" path="res://scripts/entities/slime.gd" id="1_q3i8h"]
+[ext_resource type="Script" uid="uid://cnxufpcb8auav" path="res://scripts/controllers/enemy_brain.gd" id="2_ihga3"]
+[ext_resource type="Script" uid="uid://bes176ctuuu2c" path="res://scripts/components/health_component.gd" id="2_yd32p"]
+[ext_resource type="Script" uid="uid://bheox11xmxhpk" path="res://scripts/components/movement_component.gd" id="3_35c3b"]
+[ext_resource type="Script" uid="uid://b2x2vkyk2vni6" path="res://scripts/components/weapon_component.gd" id="4_q7a4g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yd32p"]
+size = Vector2(16, 16)
+
+[node name="Slime" type="CharacterBody2D" unique_id=1218474386]
+script = ExtResource("1_q3i8h")
+metadata/_custom_type_script = "uid://cvwr10wjpoigb"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2059976785]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023979519]
+shape = SubResource("RectangleShape2D_yd32p")
+
+[node name="Components" type="Node" parent="." unique_id=1953616366]
+
+[node name="HealthComponent" type="Node" parent="Components" unique_id=519735800]
+script = ExtResource("2_yd32p")
+
+[node name="MovementComponent" type="Node" parent="Components" unique_id=2012099081]
+script = ExtResource("3_35c3b")
+
+[node name="WeaponComponent" type="Node" parent="Components" unique_id=2008188597]
+script = ExtResource("4_q7a4g")
+
+[node name="Brain" type="Node" parent="." unique_id=746924422]
+
+[node name="EntityBrain" type="Node" parent="Brain" unique_id=2130293324]
+script = ExtResource("2_ihga3")
