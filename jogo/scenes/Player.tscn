@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bmnhtcsbviewp" path="res://scripts/entities/player.gd" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://bes176ctuuu2c" path="res://scripts/components/health_component.gd" id="2_v6fml"]
 [ext_resource type="Script" uid="uid://bheox11xmxhpk" path="res://scripts/components/movement_component.gd" id="3_3li8b"]
+[ext_resource type="Script" uid="uid://c7ypjja607sav" path="res://scripts/controllers/player_brain.gd" id="4_mdl7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
 size = Vector2(16, 16)
@@ -28,3 +29,4 @@ script = ExtResource("3_3li8b")
 [node name="Brain" type="Node" parent="." unique_id=145180516]
 
 [node name="PlayerBrain" type="Node" parent="Brain" unique_id=1515605691]
+script = ExtResource("4_mdl7e")
