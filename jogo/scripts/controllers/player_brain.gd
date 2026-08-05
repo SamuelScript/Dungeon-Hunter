@@ -12,3 +12,6 @@ func update_input():
 		"move_up",
 		"move_down"
 	)
+
+func update_look():
+	entity.look_at(entity.get_global_mouse_position())
