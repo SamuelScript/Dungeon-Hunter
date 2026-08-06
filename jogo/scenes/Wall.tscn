@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bek25m1wwf8yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6k1vx"]
-size = Vector2(40, 40)
+size = Vector2(16, 16)
 
 [node name="Wall" type="StaticBody2D" unique_id=1155878241]
 
@@ -9,7 +9,7 @@ size = Vector2(40, 40)
 shape = SubResource("RectangleShape2D_6k1vx")
 
 [node name="Sprite2D" type="ColorRect" parent="." unique_id=1035864200]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
