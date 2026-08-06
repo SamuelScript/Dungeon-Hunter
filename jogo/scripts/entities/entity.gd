@@ -5,6 +5,7 @@ class_name Entity extends CharacterBody2D
 @onready var brain := $Brain/EntityBrain
 @onready var weapon_component: WeaponComponent = $Components/WeaponComponent
 @onready var weapon_socket: Marker2D = $WeaponSocket
+var alive := true
 
 func _ready() -> void:
 	health.initialize(self)
@@ -24,4 +25,4 @@ func receive_damage(amount: int):
 	)
 
 func _on_died():
-	queue_free()
+	alive = false

@@ -27,3 +27,7 @@ func try_attack():
 
 func _on_attack_timer_timeout():
 	brain.can_attack = true
+
+func _on_died():
+	super()
+	queue_free()

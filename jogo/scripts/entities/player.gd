@@ -9,6 +9,8 @@ func _ready() -> void:
 	weapon_component.equip(SWORD_SCENE.instantiate())
 
 func _physics_process(delta: float) -> void:
+	if !alive:
+		return
 	brain.update_input()
 	brain.update_look()
 	brain.update_attack()
