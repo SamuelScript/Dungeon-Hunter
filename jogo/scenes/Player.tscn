@@ -37,3 +37,7 @@ script = ExtResource("4_mdl7e")
 
 [node name="WeaponSocket" type="Marker2D" parent="." unique_id=1863449787]
 position = Vector2(8, 0)
+
+[node name="InvulnerabilityTimer" type="Timer" parent="." unique_id=1452010820]
+wait_time = 0.5
+one_shot = true
