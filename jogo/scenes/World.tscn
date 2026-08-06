@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dvfx3uqkbjpvt"]
 
+[ext_resource type="Script" uid="uid://cuh35b77kyr7h" path="res://scripts/world.gd" id="1_d1c63"]
 [ext_resource type="PackedScene" uid="uid://bxpdpqa0r0jh0" path="res://scenes/Player.tscn" id="1_kqs1s"]
 [ext_resource type="PackedScene" uid="uid://bek25m1wwf8yp" path="res://scenes/Wall.tscn" id="2_32lhk"]
 [ext_resource type="PackedScene" uid="uid://dq0xduqx0rjmp" path="res://scenes/entities/Slime.tscn" id="3_7g83o"]
 
 [node name="World" type="Node2D" unique_id=1150782632]
+script = ExtResource("1_d1c63")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1607422086]
 

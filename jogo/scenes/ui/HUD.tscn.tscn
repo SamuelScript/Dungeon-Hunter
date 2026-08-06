@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://sppge4y227py"]
+
+[ext_resource type="Script" uid="uid://df2lxma36efrw" path="res://scripts/ui/HUD.gd" id="1_g6k33"]
+
+[node name="Hud_tscn" type="CanvasLayer" unique_id=1347885208]
+script = ExtResource("1_g6k33")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2103326272]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer" unique_id=407624794]
+layout_mode = 2
+value = 100.0

@@ -1,4 +1,4 @@
-extends Entity
+class_name Player extends Entity
 
 const SWORD_SCENE = preload("res://scenes/weapons/Sword.tscn")
 
