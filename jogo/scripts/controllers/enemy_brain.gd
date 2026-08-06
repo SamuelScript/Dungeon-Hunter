@@ -2,7 +2,9 @@ class_name EnemyBrain extends Node
 
 @export var stop_distance := 20.0
 @export var target: Entity
+@export var attack_damage: int = 10
 
+var can_attack := true
 var entity: Entity
 
 func initialize(owner: Entity):

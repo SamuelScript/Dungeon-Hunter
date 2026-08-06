@@ -15,6 +15,13 @@ func _ready() -> void:
 
 func receive_damage(amount: int):
 	health.damage(amount)
+	print(
+		name,
+		" HP: ",
+		health.current_health,
+		"/",
+		health.max_health
+	)
 
 func _on_died():
 	queue_free()

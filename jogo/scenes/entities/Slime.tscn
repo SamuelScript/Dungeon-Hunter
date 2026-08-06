@@ -33,3 +33,5 @@ script = ExtResource("4_q7a4g")
 
 [node name="EntityBrain" type="Node" parent="Brain" unique_id=2130293324]
 script = ExtResource("2_ihga3")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=206292816]
