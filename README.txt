@@ -7,7 +7,8 @@ Status:
 ✔ Sprint 0 concluída
 ✔ Sprint 1 concluída
 ✔ Sprint 2 concluída
+✔ Sprint 3 concluída
 
 Versão atual:
 
-0.3.0
+0.4.0

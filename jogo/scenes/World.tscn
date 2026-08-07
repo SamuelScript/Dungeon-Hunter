@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cuh35b77kyr7h" path="res://scripts/world.gd" id="1_d1c63"]
 [ext_resource type="PackedScene" uid="uid://bxpdpqa0r0jh0" path="res://scenes/Player.tscn" id="1_kqs1s"]
 [ext_resource type="PackedScene" uid="uid://bek25m1wwf8yp" path="res://scenes/Wall.tscn" id="2_32lhk"]
-[ext_resource type="PackedScene" uid="uid://dq0xduqx0rjmp" path="res://scenes/entities/Slime.tscn" id="3_7g83o"]
+[ext_resource type="PackedScene" uid="uid://cre44r56blcdb" path="res://scenes/systems/EnemySpawner.tscn" id="4_d1c63"]
 
 [sub_resource type="TileSet" id="TileSet_d1c63"]
 physics_layer_0/collision_layer = 1
@@ -23,12 +23,6 @@ position = Vector2(-200, 0)
 
 [node name="Entities" type="Node2D" parent="." unique_id=1143975945]
 
-[node name="Slime" parent="Entities" unique_id=1218474386 instance=ExtResource("3_7g83o")]
-position = Vector2(80, 80)
-
-[node name="EntityBrain" parent="Entities/Slime/Brain" parent_id_path=PackedInt32Array(1218474386, 746924422) index="0" unique_id=2130293324 node_paths=PackedStringArray("target")]
-target = NodePath("../../../Player")
-
 [node name="Player" parent="Entities" unique_id=1145419142 instance=ExtResource("1_kqs1s")]
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1580250431]
@@ -37,4 +31,4 @@ target = NodePath("../../../Player")
 
 [node name="SlimeSpawn" type="Marker2D" parent="SpawnPoints" unique_id=1252619434]
 
-[editable path="Entities/Slime"]
+[node name="EnemySpawner" parent="." unique_id=1492821892 instance=ExtResource("4_d1c63")]

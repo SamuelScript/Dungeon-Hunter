@@ -6,6 +6,7 @@ const SPEED = 300.0
 
 func _ready() -> void:
 	super()
+	self.add_to_group("player")
 	weapon_component.equip(SWORD_SCENE.instantiate())
 
 func _physics_process(delta: float) -> void:

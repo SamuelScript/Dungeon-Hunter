@@ -15,16 +15,16 @@ func _ready() -> void:
 	weapon_component.initialize(self)
 	brain.initialize(self)
 	health.died.connect(_on_died)
-	if invulnerability_timer != null :
-		invulnerability_timer.timeout.connect(_on_invulnerability_timeout)
+	invulnerability_timer.timeout.connect(_on_invulnerability_timeout)
 
 func receive_damage(amount: int):
+	if self.name.to_lower() != "player":
+		print(self.name, " - hp : ", health.current_health)
 	if health.invulnerable:
 		return
 	health.damage(amount)
 	health.invulnerable = true
-	if invulnerability_timer != null :
-		invulnerability_timer.start(health.invulnerability_time)
+	invulnerability_timer.start(health.invulnerability_time)
 	modulate.a = 0.5
 
 func _on_died():
