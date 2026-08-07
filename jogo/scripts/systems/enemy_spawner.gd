@@ -20,6 +20,7 @@ func spawn_enemy():
 	current_enemy.brain.target = get_tree().get_first_node_in_group("player")
 
 func _on_enemy_died():
+	$"../GameManager".enemy_killed()
 	current_enemy = null
 	spawn_timer.start()
 

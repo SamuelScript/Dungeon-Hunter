@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dvfx3uqkbjpvt" path="res://scenes/World.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dbo3de2w3e5gm" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://sppge4y227py" path="res://scenes/ui/HUD.tscn.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://sppge4y227py" path="res://scenes/ui/HUD.tscn" id="3_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=382877741]
 script = ExtResource("1_sugp2")
