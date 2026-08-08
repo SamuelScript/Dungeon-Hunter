@@ -6,9 +6,7 @@ signal healed(amount: int)
 signal died()
 
 @export var max_health: int = 100
-@export var invulnerability_time: float = 0.5
 
-var invulnerable := false
 var entity : Entity
 var current_health: int
 

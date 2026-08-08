@@ -6,11 +6,11 @@ const SLIME_SCENE = preload("res://scenes/entities/Slime.tscn")
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var spawn_points := $SpawnPoints.get_children()
 
+@export var spawn_distance: float = 32.0
 @export var max_enemies: int = 3
 @export var spawn_interval: float = 2.0
 
-var alive_enemies: int = 0
-var current_enemy: Slime = null
+var enemies: Array[Slime] = []
 
 func _ready():
 	spawn_timer.wait_time = spawn_interval
@@ -19,28 +19,46 @@ func _ready():
 		spawn_enemy()
 
 func spawn_enemy():
-	if alive_enemies >= max_enemies:
+	if enemies.size() >= max_enemies:
 		return
 	
-	current_enemy = SLIME_SCENE.instantiate()
+	var enemy : Slime = SLIME_SCENE.instantiate()
 	if randf() < 0.25:
-		current_enemy.is_fast = true
+		enemy.is_fast = true
 	
-	entities.add_child(current_enemy)
+	entities.add_child(enemy)
 	
-	var point = spawn_points.pick_random()
-	current_enemy.global_position = point.global_position
+	var spawn_position = get_spawn_position()
+	if spawn_position == Vector2.INF:
+		enemy.queue_free()
+		return
+	enemy.global_position = spawn_position
 	
-	alive_enemies += 1
+	enemies.append(enemy)
 	
-	current_enemy.tree_exited.connect(_on_enemy_died)
-	current_enemy.brain.target = get_tree().get_first_node_in_group("player")
+	enemy.tree_exited.connect(_on_enemy_died.bind(enemy))
+	enemy.brain.target = get_tree().get_first_node_in_group("player")
 
-func _on_enemy_died():
-	alive_enemies -= 1
+func _on_enemy_died(enemy:Slime):
+	if enemy in enemies:
+		enemies.erase(enemy)
 	$"../GameManager".enemy_killed()
-	current_enemy = null
-	spawn_timer.start()
+	if spawn_timer.is_stopped():
+		spawn_timer.start()
 
 func _on_spawn_timer_timeout():
 	spawn_enemy()
+
+func get_spawn_position() -> Vector2:
+	var available_points = spawn_points.duplicate()
+	available_points.shuffle()
+	for point in available_points:
+		var valid := true
+		for enemy in enemies:
+			if is_instance_valid(enemy):
+				if point.global_position.distance_to(enemy.global_position) < spawn_distance:
+					valid = false
+					break
+		if valid:
+			return point.global_position
+	return Vector2.INF

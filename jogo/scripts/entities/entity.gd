@@ -8,6 +8,7 @@ class_name Entity extends CharacterBody2D
 @onready var invulnerability_timer: Timer = $InvulnerabilityTimer
 
 var alive := true
+var invulnerable := false
 
 func _ready() -> void:
 	health.initialize(self)
@@ -18,18 +19,16 @@ func _ready() -> void:
 	invulnerability_timer.timeout.connect(_on_invulnerability_timeout)
 
 func receive_damage(amount: int):
-	if self.name.to_lower() != "player":
-		print(self.name, " - hp : ", health.current_health)
-	if health.invulnerable:
+	if invulnerable:
 		return
 	health.damage(amount)
-	health.invulnerable = true
-	invulnerability_timer.start(health.invulnerability_time)
+	invulnerable = true
+	invulnerability_timer.start(0.5)
 	modulate.a = 0.5
 
 func _on_died():
 	alive = false
 
 func _on_invulnerability_timeout():
-	health.invulnerable = false
+	invulnerable = false
 	modulate.a = 1.0

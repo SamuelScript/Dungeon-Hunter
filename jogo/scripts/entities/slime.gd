@@ -9,6 +9,7 @@ func _ready() -> void:
 	if is_fast:
 		movement.speed = 95
 		health.max_health = 50
+		brain.attack_damage = 15
 	else:
 		movement.speed = 70
 	
@@ -22,19 +23,17 @@ func _physics_process(delta):
 	try_attack()
 
 func try_attack():
-	if not brain.can_attack:
-		return
 	if brain.target == null:
 		return
 	var distance = global_position.distance_to(brain.target.global_position)
 	if distance > 20:
 		return
-	brain.target.receive_damage(brain.attack_damage)
-	brain.can_attack = false
-	attack_timer.start()
+	if attack_timer.is_stopped():
+		brain.target.receive_damage(brain.attack_damage)
+		attack_timer.start()
 
 func _on_attack_timer_timeout():
-	brain.can_attack = true
+	pass
 
 func _on_died():
 	super()
