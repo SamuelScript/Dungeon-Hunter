@@ -19,6 +19,8 @@ func _ready() -> void:
 	invulnerability_timer.timeout.connect(_on_invulnerability_timeout)
 
 func receive_damage(amount: int):
+	if self.name.to_lower() != "player":
+		print(self.name," - hp: ",health.current_health)
 	if invulnerable:
 		return
 	health.damage(amount)

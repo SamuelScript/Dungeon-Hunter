@@ -3,8 +3,10 @@ class_name Sword extends Weapon
 @onready var hitbox: Area2D = $HitBoxs
 @onready var collision: CollisionShape2D = $HitBoxs/CollisionShape2D
 @onready var timer: Timer = $Timer
+
 var attacking := false
 var default_rotation := 0.0
+var hit_targets: Array[Entity] = []
 
 func _ready() -> void:
 	default_rotation = rotation
@@ -12,8 +14,13 @@ func _ready() -> void:
 func attack():
 	if attacking:
 		return
-	collision.disabled = false
 	attacking = true
+	hit_targets.clear()
+	collision.disabled = false
+	var bodies = hitbox.get_overlapping_bodies()
+	for body in bodies:
+		_on_hit_boxs_body_entered(body)
+	
 	rotation = deg_to_rad(45)
 	timer.start()
 
@@ -24,5 +31,11 @@ func _on_timer_timeout():
 	rotation = default_rotation
 
 func _on_hit_boxs_body_entered(body):
-	if body is Entity and body != entity:
-		body.receive_damage(damage)
+	if body == entity:
+		return
+	if not body is Entity:
+		return
+	if body in hit_targets:
+		return
+	hit_targets.append(body)
+	body.receive_damage(damage)
