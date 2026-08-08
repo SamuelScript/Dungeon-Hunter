@@ -1,10 +1,18 @@
 class_name Slime extends Entity
 
+@export var is_fast := false
+
 @onready var attack_timer: Timer = $AttackTimer
 
 func _ready() -> void:
 	super()
-	movement.speed = 70
+	if is_fast:
+		movement.speed = 95
+		health.max_health = 50
+	else:
+		movement.speed = 70
+	
+	health.restore()
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 
 func _physics_process(delta):

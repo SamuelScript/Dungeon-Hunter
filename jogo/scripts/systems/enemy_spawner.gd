@@ -21,11 +21,18 @@ func _ready():
 func spawn_enemy():
 	if alive_enemies >= max_enemies:
 		return
+	
 	current_enemy = SLIME_SCENE.instantiate()
+	if randf() < 0.25:
+		current_enemy.is_fast = true
+	
 	entities.add_child(current_enemy)
-	alive_enemies += 1
+	
 	var point = spawn_points.pick_random()
 	current_enemy.global_position = point.global_position
+	
+	alive_enemies += 1
+	
 	current_enemy.tree_exited.connect(_on_enemy_died)
 	current_enemy.brain.target = get_tree().get_first_node_in_group("player")
 
