@@ -9,4 +9,16 @@ script = ExtResource("1_g4tm5")
 wait_time = 3.0
 one_shot = true
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1302166089]
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1817557109]
+
+[node name="Spawn1" type="Marker2D" parent="SpawnPoints" unique_id=1302166089]
+position = Vector2(100, 0)
+
+[node name="Spawn2" type="Marker2D" parent="SpawnPoints" unique_id=207468340]
+position = Vector2(0, 100)
+
+[node name="Spawn3" type="Marker2D" parent="SpawnPoints" unique_id=588221765]
+position = Vector2(-100, 0)
+
+[node name="Spawn4" type="Marker2D" parent="SpawnPoints" unique_id=1600795691]
+position = Vector2(0, -100)
