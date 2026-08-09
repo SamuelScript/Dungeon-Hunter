@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bheox11xmxhpk" path="res://scripts/components/movement_component.gd" id="3_3li8b"]
 [ext_resource type="Script" uid="uid://c7ypjja607sav" path="res://scripts/controllers/player_brain.gd" id="4_mdl7e"]
 [ext_resource type="Script" uid="uid://b2x2vkyk2vni6" path="res://scripts/components/weapon_component.gd" id="4_qu4a1"]
+[ext_resource type="AudioStream" uid="uid://dl27gxxdcw1tq" path="res://assets/audio/combat/player_damage.wav" id="7_cw2d6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
 size = Vector2(16, 16)
@@ -47,3 +48,6 @@ position = Vector2(8, 0)
 [node name="InvulnerabilityTimer" type="Timer" parent="." unique_id=1452010820]
 wait_time = 0.5
 one_shot = true
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="." unique_id=1008408554]
+stream = ExtResource("7_cw2d6")

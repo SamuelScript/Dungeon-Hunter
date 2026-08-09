@@ -1,5 +1,6 @@
 class_name Sword extends Weapon
 
+@onready var attack_sound: AudioStreamPlayer = $AttackSound
 @onready var hitbox: Area2D = $HitBoxs
 @onready var collision: CollisionShape2D = $HitBoxs/CollisionShape2D
 @onready var timer: Timer = $Timer
@@ -14,6 +15,7 @@ func _ready() -> void:
 func attack():
 	if attacking:
 		return
+	attack_sound.play()
 	attacking = true
 	hit_targets.clear()
 	collision.disabled = false

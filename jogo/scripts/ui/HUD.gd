@@ -6,6 +6,8 @@ class_name HUD extends CanvasLayer
 @onready var restart_button: Button = $GameOver/PanelContainer/VBoxContainer/Button
 @onready var play_again: Button = $Victory/PanelContainer/VBoxContainer/Button
 @onready var kill_counter: Label = $MarginContainer/KillCounter
+@onready var game_over_sound : AudioStreamPlayer = $GameOverSound
+@onready var victory_sound : AudioStreamPlayer = $VictorySound
 
 var player: Player
 
@@ -33,10 +35,14 @@ func _on_health_changed(current: int, maximum: int):
 
 func _on_victory():
 	victory.visible = true
+	victory_sound.play()
 
 func _on_player_died():
 	game_over.visible = true
+	game_over_sound.play()
+
 func _on_restart_pressed():
 	get_tree().reload_current_scene()
+
 func _on_victory_restart_pressed():
 	get_tree().reload_current_scene()

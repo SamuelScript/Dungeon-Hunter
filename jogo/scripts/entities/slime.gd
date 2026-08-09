@@ -2,6 +2,8 @@ class_name Slime extends Entity
 
 @export var is_fast := false
 
+@onready var death_sound: AudioStreamPlayer = $DeathSound
+@onready var damage_sound: AudioStreamPlayer = $DamageSound
 @onready var attack_timer: Timer = $AttackTimer
 
 func _ready() -> void:
@@ -37,6 +39,15 @@ func _on_attack_timer_timeout():
 
 func _on_died():
 	super()
+	death_sound.reparent(get_tree().current_scene)
+	death_sound.finished.connect(death_sound.queue_free)
+	death_sound.play()
 	modulate = Color(1.0,0.3,0.3)
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
+
+func receive_damage(amount: int):
+	var previous_health = health.current_health
+	super(amount)
+	if health.current_health < previous_health:
+		damage_sound.play()

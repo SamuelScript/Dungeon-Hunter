@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqs4rkmmnineu" path="res://scripts/weapons/sword.gd" id="1_m7h3f"]
 [ext_resource type="Texture2D" uid="uid://njq2jaoq8ub6" path="res://assets/sprites/weapons/sword.png" id="2_feku7"]
+[ext_resource type="AudioStream" uid="uid://6tea7eck2mop" path="res://assets/audio/combat/sword_attack.wav" id="3_x6a7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7h3f"]
 size = Vector2(16, 16)
@@ -21,6 +22,9 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxs" unique_id=1146292353]
 shape = SubResource("RectangleShape2D_m7h3f")
 disabled = true
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=1796836360]
+stream = ExtResource("3_x6a7j")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="HitBoxs" to="." method="_on_hit_boxs_body_entered"]

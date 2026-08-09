@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://sppge4y227py"]
 
 [ext_resource type="Script" uid="uid://df2lxma36efrw" path="res://scripts/ui/HUD.gd" id="1_g6k33"]
+[ext_resource type="AudioStream" uid="uid://cmotan2ygfv6f" path="res://assets/audio/ui/victory.wav" id="2_6ll6g"]
+[ext_resource type="AudioStream" uid="uid://cyny2vqpxguj4" path="res://assets/audio/ui/game_over.wav" id="3_ig75s"]
 
 [node name="Hud_tscn" type="CanvasLayer" unique_id=1347885208]
 script = ExtResource("1_g6k33")
@@ -66,3 +68,9 @@ text = "Vitória!"
 [node name="Button" type="Button" parent="Victory/PanelContainer/VBoxContainer" unique_id=1037571795]
 layout_mode = 2
 text = "Jogar Novamente"
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="." unique_id=1419370359]
+stream = ExtResource("2_6ll6g")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=734339397]
+stream = ExtResource("3_ig75s")
