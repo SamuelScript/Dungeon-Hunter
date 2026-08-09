@@ -19,11 +19,12 @@ func _ready() -> void:
 	invulnerability_timer.timeout.connect(_on_invulnerability_timeout)
 
 func receive_damage(amount: int):
-	if self.name.to_lower() != "player":
-		print(self.name," - hp: ",health.current_health)
+	if not alive:
+		return
 	if invulnerable:
 		return
 	health.damage(amount)
+	flash_damage()
 	invulnerable = true
 	invulnerability_timer.start(0.5)
 	modulate.a = 0.5
@@ -33,4 +34,10 @@ func _on_died():
 
 func _on_invulnerability_timeout():
 	invulnerable = false
-	modulate.a = 1.0
+	modulate = Color.WHITE
+
+func flash_damage():
+	modulate = Color(1.0, 0.4, 0.4,0.5)
+	await get_tree().create_timer(0.1).timeout
+	if alive:
+		modulate = Color(1.0,1.0,1.0,0.5)

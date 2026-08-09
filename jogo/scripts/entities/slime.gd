@@ -37,4 +37,6 @@ func _on_attack_timer_timeout():
 
 func _on_died():
 	super()
+	modulate = Color(1.0,0.3,0.3)
+	await get_tree().create_timer(0.1).timeout
 	queue_free()
