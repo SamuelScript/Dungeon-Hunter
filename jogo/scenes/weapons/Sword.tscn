@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://tkps66qy8e6s"]
 
 [ext_resource type="Script" uid="uid://cqs4rkmmnineu" path="res://scripts/weapons/sword.gd" id="1_m7h3f"]
+[ext_resource type="Texture2D" uid="uid://njq2jaoq8ub6" path="res://assets/sprites/weapons/sword.png" id="2_feku7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7h3f"]
 size = Vector2(16, 16)
@@ -9,12 +10,7 @@ size = Vector2(16, 16)
 script = ExtResource("1_m7h3f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2114336281]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1148356692]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+texture = ExtResource("2_feku7")
 
 [node name="Timer" type="Timer" parent="." unique_id=2144067769]
 wait_time = 0.15

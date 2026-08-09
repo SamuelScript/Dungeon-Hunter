@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bxpdpqa0r0jh0"]
 
 [ext_resource type="Script" uid="uid://bmnhtcsbviewp" path="res://scripts/entities/player.gd" id="1_p0vlq"]
+[ext_resource type="Texture2D" uid="uid://bgi53gjg5quka" path="res://assets/sprites/player/player.png" id="2_70d11"]
 [ext_resource type="Script" uid="uid://bes176ctuuu2c" path="res://scripts/components/health_component.gd" id="2_v6fml"]
 [ext_resource type="Script" uid="uid://bheox11xmxhpk" path="res://scripts/components/movement_component.gd" id="3_3li8b"]
 [ext_resource type="Script" uid="uid://c7ypjja607sav" path="res://scripts/controllers/player_brain.gd" id="4_mdl7e"]
@@ -13,11 +14,16 @@ size = Vector2(16, 16)
 script = ExtResource("1_p0vlq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1278490887]
+texture = ExtResource("2_70d11")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1904434405]
 shape = SubResource("RectangleShape2D_p0vlq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=32996631]
+limit_left = -320
+limit_top = -180
+limit_right = 320
+limit_bottom = 180
 
 [node name="Components" type="Node" parent="." unique_id=2020611237]
 
