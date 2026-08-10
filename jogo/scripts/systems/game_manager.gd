@@ -1,17 +1,33 @@
 class_name GameManager extends Node
 
-signal enemies_killed_changed(current: int)
+signal enemies_killed_changed(current: int,count_max:int)
 signal victory()
+signal game_over()
 
-@export var target_kills: int = 10
+@export var target_kills: int = 5
 
 var enemies_killed := 0
+var game_finished := false
 
 func _ready() -> void:
 	add_to_group("game_manager")
 
 func enemy_killed():
 	enemies_killed += 1
-	enemies_killed_changed.emit(enemies_killed)
+	enemies_killed_changed.emit(enemies_killed,target_kills)
 	if enemies_killed >= target_kills:
-		victory.emit()
+		has_won()
+
+func has_won():
+	if game_finished:
+		return
+	game_finished = true
+	victory.emit()
+
+func _on_player_died():
+	print("Is game over")
+	if game_finished:
+		return
+	game_finished = true
+	print("Game Over Trigged")
+	game_over.emit()

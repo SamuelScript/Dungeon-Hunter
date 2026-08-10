@@ -7,5 +7,6 @@ extends Node2D
 @onready var slime_spawn: Marker2D = $SpawnPoints/SlimeSpawn
 
 func _ready() -> void:
+	player.health.died.connect(($GameManager)._on_player_died)
 	player.global_position = player_spawn.global_position
 	slime.global_position = slime_spawn.global_position
