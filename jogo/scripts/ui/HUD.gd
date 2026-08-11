@@ -18,7 +18,6 @@ func initialize(owner: Player):
 		player.health.current_health,
 		player.health.max_health
 	)
-	#player.health.died.connect(_on_player_died)
 	restart_button.pressed.connect(_on_restart_pressed)
 	var game_manager = get_tree().get_first_node_in_group("game_manager")
 	game_manager.game_over.connect(_on_player_died)
@@ -40,7 +39,6 @@ func _on_victory():
 	get_tree().paused = true
 
 func _on_player_died():
-	print("game over show")
 	game_over.visible = true
 	game_over_sound.play()
 	get_tree().paused = true

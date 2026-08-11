@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dvfx3uqkbjpvt"]
 
 [ext_resource type="Script" uid="uid://cuh35b77kyr7h" path="res://scripts/world.gd" id="1_d1c63"]
-[ext_resource type="PackedScene" uid="uid://bxpdpqa0r0jh0" path="res://scenes/Player.tscn" id="1_kqs1s"]
+[ext_resource type="PackedScene" uid="uid://bxpdpqa0r0jh0" path="res://scenes/entities/Player.tscn" id="1_kqs1s"]
 [ext_resource type="Texture2D" uid="uid://is7q452yuxnq" path="res://assets/sprites/environments/floorr.png" id="2_0uv0p"]
 [ext_resource type="Texture2D" uid="uid://6wyy8ksf8s2k" path="res://assets/sprites/environments/wall.png" id="3_b3faq"]
 [ext_resource type="PackedScene" uid="uid://cre44r56blcdb" path="res://scenes/systems/EnemySpawner.tscn" id="4_d1c63"]

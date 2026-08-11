@@ -25,9 +25,7 @@ func has_won():
 	victory.emit()
 
 func _on_player_died():
-	print("Is game over")
 	if game_finished:
 		return
 	game_finished = true
-	print("Game Over Trigged")
 	game_over.emit()
