@@ -12,11 +12,11 @@ Este projeto foi pensado para um processo pessoal de desenvolvimento e aprendiza
 ✔ Sprint 3 - HUD e sistemas básicos
 ✔ Sprint 4 - Inimigos e primeiro loop completo
 ✔ Sprint 5 - Refatoração
-
+✔ Sprint 6 - Inimigo a distância
 
 **Versão atual:**
 
-`0.6.0`
+`0.7.0`
 
 ## Tecnologias
 
