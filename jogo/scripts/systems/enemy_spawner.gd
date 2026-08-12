@@ -1,6 +1,7 @@
 class_name EnemySpawner extends Node2D
 
 const SLIME_SCENE = preload("res://scenes/entities/Slime.tscn")
+const GOBLIN_SCENE = preload("res://scenes/entities/Goblin.tscn")
 
 @onready var entities: Node2D = $"../Entities"
 @onready var spawn_timer: Timer = $SpawnTimer
@@ -21,10 +22,14 @@ func _ready():
 func spawn_enemy():
 	if enemies.size() >= max_enemies:
 		return
-	
-	var enemy : Slime = SLIME_SCENE.instantiate()
-	if randf() < 0.25:
-		enemy.is_fast = true
+	var roll = randf()
+	var enemy
+	if roll < 0.9 :
+		enemy = SLIME_SCENE.instantiate()
+		if roll < 0.3:
+			enemy.is_fast = true
+	else:
+		enemy = GOBLIN_SCENE.instantiate()
 	
 	entities.add_child(enemy)
 	

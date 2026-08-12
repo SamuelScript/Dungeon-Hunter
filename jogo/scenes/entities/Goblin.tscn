@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bjnmk30ljrcl5"]
+
+[ext_resource type="Script" uid="uid://u8vo4voe7hg2" path="res://scripts/entities/goblin.gd" id="1_01kty"]
+[ext_resource type="Texture2D" uid="uid://bvy8lr7yo0yp4" path="res://assets/sprites/enemies/goblin.png" id="1_ue0fe"]
+[ext_resource type="Script" uid="uid://bes176ctuuu2c" path="res://scripts/components/health_component.gd" id="2_4f871"]
+[ext_resource type="Script" uid="uid://cun4wt43g6tnf" path="res://scripts/controllers/goblin_brain.gd" id="4_s62bm"]
+[ext_resource type="AudioStream" uid="uid://7wiasftcfaht" path="res://assets/audio/combat/hit.wav" id="6_y6sfb"]
+[ext_resource type="AudioStream" uid="uid://b73hitcx7njof" path="res://assets/audio/combat/enemy_death.wav" id="7_lq12u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f871"]
+size = Vector2(16, 16)
+
+[node name="Goblin" type="CharacterBody2D" unique_id=285660846]
+script = ExtResource("1_01kty")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=330692569]
+texture = ExtResource("1_ue0fe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1666108325]
+shape = SubResource("RectangleShape2D_4f871")
+
+[node name="Components" type="Node" parent="." unique_id=1888299866]
+
+[node name="HealthComponent" type="Node" parent="Components" unique_id=13218090]
+script = ExtResource("2_4f871")
+
+[node name="Brain" type="Node" parent="." unique_id=599691161]
+
+[node name="EntityBrain" type="Node" parent="Brain" unique_id=817616763]
+script = ExtResource("4_s62bm")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1791349269]
+wait_time = 1.5
+one_shot = true
+
+[node name="InvulnerabilityTimer" type="Timer" parent="." unique_id=76190593]
+wait_time = 0.5
+one_shot = true
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="." unique_id=1032720699]
+stream = ExtResource("6_y6sfb")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=972850976]
+stream = ExtResource("7_lq12u")

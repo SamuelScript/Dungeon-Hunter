@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://l2avuovglatt"]
+
+[ext_resource type="Script" uid="uid://bdtgeq43ukc5v" path="res://scripts/entities/goblin_projectile.gd" id="1_ki6nc"]
+[ext_resource type="Texture2D" uid="uid://d36frant6lyx8" path="res://assets/sprites/weapons/goblin_projectile.png" id="2_nynb6"]
+[ext_resource type="AudioStream" uid="uid://6tea7eck2mop" path="res://assets/audio/combat/sword_attack.wav" id="3_ln6vj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ki6nc"]
+radius = 4.0
+
+[node name="GoblinProjectile" type="Area2D" unique_id=307631210]
+script = ExtResource("1_ki6nc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=773337819]
+texture = ExtResource("2_nynb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=559877563]
+shape = SubResource("CircleShape2D_ki6nc")
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=1450112514]
+stream = ExtResource("3_ln6vj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
