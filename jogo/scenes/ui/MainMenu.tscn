@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bvnqvfe0f476w"]
+
+[ext_resource type="Script" uid="uid://b03cxh6wk48df" path="res://scripts/ui/main_menu.gd" id="1_vjtqc"]
+
+[node name="MainMenu" type="Control" unique_id=234721143]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjtqc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=11247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="Label" type="Label" parent="." unique_id=647433878]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_right = 65.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Dungeon Hunter"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1480442577]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -50.5
+offset_right = 36.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1413226118]
+layout_mode = 2
+text = "Jogar"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=1195234308]
+layout_mode = 2
+text = "Créditos"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=213896379]
+layout_mode = 2
+text = "Sair"
+
+[node name="CreditsPanel" type="Panel" parent="." unique_id=304433362]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CreditsPanel" unique_id=1556387172]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_right = 32.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Créditos"
+
+[node name="Text" type="Label" parent="CreditsPanel" unique_id=1242059923]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -335.0
+offset_right = 193.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Dungeon Hunter
+
+Desenvolvido por Samuel
+
+Godot
+GIMP
+ChatGPT
+
+Projeto desenvolvido como parte de um processo
+pessoal de aprendizado e publicação de jogos.
+
+IA foi utilizada como ferramenta de auxílio
+durante o desenvolvimento e na criação de áudio."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="CreditsPanel" unique_id=346683275]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Voltar
+"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CreditsPanel/BackButton" to="." method="_on_back_button_pressed"]

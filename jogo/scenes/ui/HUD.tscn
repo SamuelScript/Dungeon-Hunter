@@ -9,6 +9,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Hud_tscn" type="CanvasLayer" unique_id=1347885208]
+process_mode = 3
 script = ExtResource("1_g6k33")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2103326272]
@@ -35,6 +36,20 @@ value = 100.0
 layout_mode = 2
 size_flags_vertical = 8
 text = "Slimes: 0/5"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1304567273]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CountDown" type="Label" parent="CenterContainer" unique_id=704114330]
+layout_mode = 2
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_6ll6g")
+
+[node name="CountDownTimer" type="Timer" parent="CenterContainer" unique_id=1874317326]
 
 [node name="GameOver" type="CenterContainer" parent="." unique_id=80073990]
 process_mode = 3
@@ -90,24 +105,31 @@ process_mode = 3
 layout_mode = 2
 text = "Jogar Novamente"
 
-[node name="VictorySound" type="AudioStreamPlayer" parent="." unique_id=1419370359]
-stream = ExtResource("2_6ll6g")
-
-[node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=734339397]
-stream = ExtResource("3_ig75s")
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1304567273]
+[node name="PausePanel" type="CenterContainer" parent="." unique_id=1308696676]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CountDown" type="Label" parent="CenterContainer" unique_id=704114330]
+[node name="VBoxContainer" type="VBoxContainer" parent="PausePanel" unique_id=1252434115]
 layout_mode = 2
-size_flags_vertical = 8
-label_settings = SubResource("LabelSettings_6ll6g")
 
-[node name="CountDownTimer" type="Timer" parent="CenterContainer" unique_id=1874317326]
+[node name="Title" type="Label" parent="PausePanel/VBoxContainer" unique_id=1284421625]
+layout_mode = 2
+text = "Pausado"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PausePanel/VBoxContainer" unique_id=1398370623]
+layout_mode = 2
+text = "Continuar"
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="." unique_id=1419370359]
+stream = ExtResource("2_6ll6g")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=734339397]
+stream = ExtResource("3_ig75s")
 
 [connection signal="timeout" from="CenterContainer/CountDownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="pressed" from="PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

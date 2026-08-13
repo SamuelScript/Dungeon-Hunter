@@ -6,9 +6,9 @@ const PROJECTILE_SCENE = preload("res://scenes/projectiles/goblin_projectile.tsc
 @onready var damage_sound: AudioStreamPlayer = $DamageSound
 @onready var attack_timer: Timer = $AttackTimer
 
-@export var movement_speed := 50.0
-
 func _ready() -> void:
+	super()
+	movement.speed = 50
 	var player := get_tree().get_first_node_in_group("player") as Entity
 	if player != null:
 		brain.set_target(player)
@@ -17,7 +17,7 @@ func _physics_process(_delta: float) -> void:
 	if brain.target == null:
 		return
 	var direction = brain.get_direction(global_position)
-	velocity = direction * movement_speed
+	velocity = movement.get_velocity()
 	move_and_slide()
 	
 	try_attack()

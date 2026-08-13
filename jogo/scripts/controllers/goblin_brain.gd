@@ -1,9 +1,13 @@
 class_name GoblinBrain extends Node
 
-var target: Entity
-
 @export var preferred_distance := 140.0
 @export var minimum_distance := 80.0
+
+var entity: Entity
+var target: Entity
+
+func initialize(owner: Entity):
+	entity = owner
 
 func set_target(new_target: Entity) -> void:
 	target = new_target

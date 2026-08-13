@@ -1,12 +1,16 @@
 class_name Player extends Entity
 
+
 const SWORD_SCENE = preload("res://scenes/weapons/Sword.tscn")
 const SPEED = 300.0
 
+@onready var weapon_component: WeaponComponent = $Components/WeaponComponent
+@onready var weapon_socket: Marker2D = $WeaponSocket
 @onready var damage_sound: AudioStreamPlayer = $DamageSound
 
 func _ready() -> void:
 	super()
+	weapon_component.initialize(self)
 	self.add_to_group("player")
 	weapon_component.equip(SWORD_SCENE.instantiate())
 

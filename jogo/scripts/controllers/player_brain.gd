@@ -1,6 +1,6 @@
 class_name PlayerBrain extends Node
 
-var entity: Entity
+var entity: Player
 
 func initialize(owner: Entity):
 	entity = owner

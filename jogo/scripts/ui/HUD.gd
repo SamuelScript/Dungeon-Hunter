@@ -10,8 +10,10 @@ class_name HUD extends CanvasLayer
 @onready var victory_sound : AudioStreamPlayer = $VictorySound
 @onready var countdown: Label = $CenterContainer/CountDown
 @onready var countdown_timer: Timer = $CenterContainer/CountDownTimer
+@onready var pause_panel: CenterContainer = $PausePanel
 
 var countdown_value := 3
+var game_paused := false
 
 var player: Player
 
@@ -41,6 +43,8 @@ func start_countdown() -> void:
 	countdown_timer.start()
 
 func _on_countdown_timer_timeout() -> void:
+	if game_paused :
+		return
 	countdown_value -= 1
 	if countdown_value <= 0:
 		countdown.text = "LUTAR!"
@@ -76,3 +80,15 @@ func _on_restart_pressed():
 func _on_victory_restart_pressed():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+func _on_resume_button_pressed() -> void:
+	toggle_pause()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		toggle_pause()
+
+func toggle_pause() -> void:
+	game_paused = not game_paused
+	pause_panel.visible = game_paused
+	get_tree().paused = game_paused

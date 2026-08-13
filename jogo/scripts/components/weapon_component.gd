@@ -1,6 +1,6 @@
 class_name WeaponComponent extends Node
 
-var entity: Entity
+var entity: Player
 var weapon: Weapon = null
 
 func initialize(owner: Entity):
