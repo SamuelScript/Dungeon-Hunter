@@ -14,6 +14,8 @@ func set_direction(new_direction: Vector2) -> void:
 	direction = new_direction.normalized()
 
 func _on_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer:
+		queue_free()
 	if body is Player:
 		body.receive_damage(damage)
 		queue_free()

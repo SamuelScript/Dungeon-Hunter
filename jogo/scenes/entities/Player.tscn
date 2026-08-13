@@ -21,10 +21,10 @@ texture = ExtResource("2_70d11")
 shape = SubResource("RectangleShape2D_p0vlq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=32996631]
-limit_left = -320
-limit_top = -180
-limit_right = 320
-limit_bottom = 180
+limit_left = -336
+limit_top = -192
+limit_right = 336
+limit_bottom = 192
 
 [node name="Components" type="Node" parent="." unique_id=2020611237]
 
