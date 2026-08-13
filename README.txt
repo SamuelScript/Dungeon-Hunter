@@ -14,10 +14,11 @@ Este projeto foi pensado para um processo pessoal de desenvolvimento e aprendiza
 ✔ Sprint 5 - Revisão Técnica
 ✔ Sprint 6 - Inimigo a distância
 ✔ Sprint 7 - Arena e estrutura da partida
+✔ Sprint 8 - Interface e Apresentação
 
 **Versão atual:**
 
-`0.8.0`
+`0.9.0`
 
 ## Tecnologias
 
