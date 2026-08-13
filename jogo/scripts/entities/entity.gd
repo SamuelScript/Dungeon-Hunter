@@ -28,6 +28,13 @@ func receive_damage(amount: int):
 
 func _on_died():
 	alive = false
+	print("Morreu")
+	death_effect()
+	await get_tree().create_timer(0.15).timeout
+
+func death_effect() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2.ZERO, 0.15)
 
 func _on_invulnerability_timeout():
 	invulnerable = false

@@ -10,10 +10,11 @@ func _ready() -> void:
 	super()
 	if is_fast:
 		movement.speed = 95
-		health.max_health = 50
-		brain.attack_damage = 15
+		health.max_health = 35
+		brain.attack_damage = 8
 	else:
 		movement.speed = 70
+		health.max_health = 50
 	
 	health.restore()
 	attack_timer.timeout.connect(_on_attack_timer_timeout)

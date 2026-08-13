@@ -25,7 +25,6 @@ func begin_match() -> void:
 	if game_started or game_finished:
 		return
 	game_started = true
-	print("Start Match")
 	match_started.emit()
 
 func enemy_killed():

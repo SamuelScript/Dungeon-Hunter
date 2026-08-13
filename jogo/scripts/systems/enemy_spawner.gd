@@ -51,6 +51,8 @@ func spawn_enemy():
 	enemy.brain.target = get_tree().get_first_node_in_group("player")
 
 func _on_enemy_died(enemy:Slime):
+	if get_tree() == null:
+		return
 	if enemy in enemies:
 		enemies.erase(enemy)
 	$"../GameManager".enemy_killed()
