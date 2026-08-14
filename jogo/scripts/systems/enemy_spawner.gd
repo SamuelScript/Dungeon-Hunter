@@ -50,8 +50,8 @@ func spawn_enemy():
 	enemy.tree_exited.connect(_on_enemy_died.bind(enemy))
 	enemy.brain.target = get_tree().get_first_node_in_group("player")
 
-func _on_enemy_died(enemy:Slime):
-	if get_tree() == null:
+func _on_enemy_died(enemy:Entity):
+	if not enemy.is_dead():
 		return
 	if enemy in enemies:
 		enemies.erase(enemy)

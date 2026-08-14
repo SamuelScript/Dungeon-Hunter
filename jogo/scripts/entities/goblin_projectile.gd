@@ -2,7 +2,7 @@ class_name GoblinProjectile extends Area2D
 
 @onready var attack_sound: AudioStreamPlayer = $AttackSound
 @export var speed := 180.0
-@export var damage := 10
+@export var damage := 12
 
 var direction := Vector2.ZERO
 

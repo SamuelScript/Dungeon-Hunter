@@ -9,7 +9,6 @@ const PROJECTILE_SCENE = preload("res://scenes/projectiles/goblin_projectile.tsc
 func _ready() -> void:
 	super()
 	movement.speed = 50
-	brain.attack_damage = 12
 	var player := get_tree().get_first_node_in_group("player") as Entity
 	if player != null:
 		brain.set_target(player)

@@ -16,10 +16,12 @@ Este projeto foi pensado para um processo pessoal de desenvolvimento e aprendiza
 ✔ Sprint 7 - Arena e estrutura da partida
 ✔ Sprint 8 - Interface e Apresentação
 ✔ Sprint 9 - Polimento
+✔ Sprint 10 - Testes finais e preparação da versão 1.0
+✔ Sprint 11 - Preparação para lançamento
 
 **Versão atual:**
 
-`0.10.0`
+`1.0.0`
 
 ## Tecnologias
 

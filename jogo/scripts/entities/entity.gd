@@ -28,7 +28,6 @@ func receive_damage(amount: int):
 
 func _on_died():
 	alive = false
-	print("Morreu")
 	death_effect()
 	await get_tree().create_timer(0.15).timeout
 
@@ -45,3 +44,6 @@ func flash_damage():
 	await get_tree().create_timer(0.1).timeout
 	if alive:
 		modulate = Color(1.0,1.0,1.0,0.5)
+
+func is_dead():
+	return health.is_dead()

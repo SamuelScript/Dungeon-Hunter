@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Dungeon Hunter"
+config/version="1.0.0"
 run/main_scene="uid://bvnqvfe0f476w"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bdabr6ks4od0v"
 
 [display]
 
