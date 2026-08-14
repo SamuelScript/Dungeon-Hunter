@@ -38,3 +38,24 @@ Como mentor e auxiliar, o ChatGPT foi utilizado durante o desenvolvimento do pro
 No momento, grande parte do código foi implementada a partir das sugestões fornecidas pela IA, com poucas adaptações realizadas durante o desenvolvimento, principalmente para corrigir problemas de coerência, consistência e funcionamento encontrados durante a implementação.
 
 Isso faz parte da proposta do projeto: utilizar a IA como ferramenta para alcançar o objetivo principal, que é trabalhar no meu desenvolvimento pessoal e conseguir publicar jogos, mesmo que isso resulte em um jogo desenvolvido majoritariamente com auxílio de IA.
+
+## Objetivo do projeto
+
+O principal objetivo do Dungeon Hunter é trabalhar a capacidade de iniciar, desenvolver, concluir e publicar um projeto de jogo com escopo reduzido.
+
+## Sobre o jogo
+
+Dungeon Hunter é um pequeno Top Down Shooter no qual o jogador enfrenta diferentes tipos de inimigos em uma arena.
+
+O jogo possui:
+
+- Combate em tempo real;
+- 3 tipos de inimigos;
+- Arena com obstáculos;
+- Sistema de vida;
+- Spawn de inimigos;
+- Condição de vitória e derrota;
+- Sistema de pausa;
+- Reinício de partida;
+- Efeitos sonoros;
+- Menu inicial e créditos.
